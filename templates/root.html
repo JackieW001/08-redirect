@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Form</title>
+  </head>
+
+  <body>
+    {% if error != "" %}
+    <h1>{{error}}</h1>
+    {% endif %}
+
+    <form action='/welcome'>
+      Please enter your username here:
+      <br>
+      <input type='text' name='username' required>
+      <br>
+      Please enter your password: 
+      <br>
+      <input type='text' name='password' required>
+      <br><br>
+      <input type='submit' value='Submit'>
+    </form>
+    
+  </body>
+</html>
