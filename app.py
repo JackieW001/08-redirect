@@ -7,7 +7,7 @@ app = Flask(__name__)
 app.secret_key = "secret"
 
 @app.route('/', methods=["GET"])
-def root(error=""):
+def root():
 
     #logs user out of session
     if 'logout' in request.args.keys():
@@ -18,7 +18,7 @@ def root(error=""):
         return redirect(url_for("response", name=session['username']))
 
     # if new session, go to login page
-    return render_template("root.html")
+    return render_template("root.html", error="" )
 
 
 @app.route('/welcome', methods=["GET", "POST"])
