@@ -17,8 +17,12 @@ def root():
     if 'username' in session.keys():
         return redirect(url_for("response", name=session['username']))
 
+    print request.args
+    if 'error' in request.args.keys():
+        return render_template("root.html", error=request.args['error'])
+    
     # if new session, go to login page
-    return render_template("root.html", error="" )
+    return render_template("root.html" )
 
 
 @app.route('/welcome', methods=["GET", "POST"])
